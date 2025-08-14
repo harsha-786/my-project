@@ -23,4 +23,18 @@ for folder_name in set(folder_mappings.values())
         os.makedirs(folder_path)
         print(f"Created folder: {folder_name}")
 
+for file_name in file_names:
+    # Ignore folders and hidden files
+    if os.path.isfile(os.path.join(path, file_name)):
+        file_extension = os.path.splitext(file_name)[1].lower()
+
+        if file_extension in folder_mappings:
+            destination_folder_name = folder_mappings[file_extension]
+            source_path = os.path.join(path, file_name)
+            destination_path = os.path.join(path, destination_folder_name, file_name)
+
+            print(f"Moving '{file_name}' to '{destination_folder_name}'...")
+            shutil.move(source_path, destination_path)
+
+print("Done! Your folder is now organized. ✨")
 
