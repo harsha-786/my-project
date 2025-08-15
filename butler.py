@@ -11,13 +11,13 @@ file_names = os.listdir(path)
 
 #Create destination folders for the files inside the path
 
-folder_mappings:{
+folder_mappings = {
         ".png": "Images",
-        ".svg": "Vector files",
-        ".tgz": "TAR files",
+        ".svg": "SVG files",
+        ".tar.gz": "TAR files"
         }
 
-for folder_name in set(folder_mappings.values())
+for folder_name in set(folder_mappings.values()):
     folder_path = os.path.join(path, folder_name)
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
@@ -32,9 +32,8 @@ for file_name in file_names:
             destination_folder_name = folder_mappings[file_extension]
             source_path = os.path.join(path, file_name)
             destination_path = os.path.join(path, destination_folder_name, file_name)
-
             print(f"Moving '{file_name}' to '{destination_folder_name}'...")
             shutil.move(source_path, destination_path)
 
-print("Done! Your folder is now organized. ✨")
+print("Done! Your folder is now organized.")
 
