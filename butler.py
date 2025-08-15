@@ -5,7 +5,7 @@ import shutil
 
 #Example: create a folder on Desktop to test the functionality.
 
-path = '../../Desktop/test_folder'
+path = input("Input the Foler path you want to organize the files = ")
 
 file_names = os.listdir(path)
 
